@@ -16,6 +16,10 @@
 		FB88FA212DCE5D6100FF12DE /* pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88FA202DCE5D6100FF12DE /* pokemon.swift */; };
 		FB88FA232DCE629D00FF12DE /* movimientos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88FA222DCE629D00FF12DE /* movimientos.swift */; };
 		FB88FA252DCE638600FF12DE /* hablidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88FA242DCE638600FF12DE /* hablidades.swift */; };
+		FBE41D272DD4EEDF00415FB1 /* pagina_resultados.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE41D262DD4EEDF00415FB1 /* pagina_resultados.swift */; };
+		FBE41D292DD4F11D00415FB1 /* errores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE41D282DD4F11D00415FB1 /* errores.swift */; };
+		FBE41D2D2DD4F26800415FB1 /* pantalla_pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE41D2C2DD4F26800415FB1 /* pantalla_pokedex.swift */; };
+		FBE41D2F2DD4F60800415FB1 /* detalles_pkm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE41D2E2DD4F60800415FB1 /* detalles_pkm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		FB88FA202DCE5D6100FF12DE /* pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemon.swift; sourceTree = "<group>"; };
 		FB88FA222DCE629D00FF12DE /* movimientos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movimientos.swift; sourceTree = "<group>"; };
 		FB88FA242DCE638600FF12DE /* hablidades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hablidades.swift; sourceTree = "<group>"; };
+		FBE41D262DD4EEDF00415FB1 /* pagina_resultados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pagina_resultados.swift; sourceTree = "<group>"; };
+		FBE41D282DD4F11D00415FB1 /* errores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errores.swift; sourceTree = "<group>"; };
+		FBE41D2C2DD4F26800415FB1 /* pantalla_pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = pantalla_pokedex.swift; path = servicios_API/pantalla_pokedex.swift; sourceTree = SOURCE_ROOT; };
+		FBE41D2E2DD4F60800415FB1 /* detalles_pkm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = detalles_pkm.swift; path = servicios_API/detalles_pkm.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				FB88FA182DCE5A3800FF12DE /* pokemon_api.swift */,
+				FBE41D282DD4F11D00415FB1 /* errores.swift */,
 			);
 			path = servicios_API;
 			sourceTree = "<group>";
@@ -100,6 +109,7 @@
 		FB88FA1C2DCE5B4E00FF12DE /* modelos */ = {
 			isa = PBXGroup;
 			children = (
+				FBE41D252DD4EEB500415FB1 /* soporte */,
 				FB88FA202DCE5D6100FF12DE /* pokemon.swift */,
 				FB88FA222DCE629D00FF12DE /* movimientos.swift */,
 				FB88FA242DCE638600FF12DE /* hablidades.swift */,
@@ -110,8 +120,18 @@
 		FB88FA1D2DCE5B5B00FF12DE /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				FBE41D2C2DD4F26800415FB1 /* pantalla_pokedex.swift */,
+				FBE41D2E2DD4F60800415FB1 /* detalles_pkm.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		FBE41D252DD4EEB500415FB1 /* soporte */ = {
+			isa = PBXGroup;
+			children = (
+				FBE41D262DD4EEDF00415FB1 /* pagina_resultados.swift */,
+			);
+			path = soporte;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,13 +204,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE41D292DD4F11D00415FB1 /* errores.swift in Sources */,
+				FBE41D2D2DD4F26800415FB1 /* pantalla_pokedex.swift in Sources */,
 				FB88FA1F2DCE5D0700FF12DE /* controlador_api.swift in Sources */,
 				FB88FA212DCE5D6100FF12DE /* pokemon.swift in Sources */,
 				FB88FA192DCE5A3800FF12DE /* pokemon_api.swift in Sources */,
 				FB88FA252DCE638600FF12DE /* hablidades.swift in Sources */,
+				FBE41D2F2DD4F60800415FB1 /* detalles_pkm.swift in Sources */,
 				FB88FA0C2DCE57F200FF12DE /* ContentView.swift in Sources */,
 				FB88FA232DCE629D00FF12DE /* movimientos.swift in Sources */,
 				FB88FA0A2DCE57F200FF12DE /* PokedexApp.swift in Sources */,
+				FBE41D272DD4EEDF00415FB1 /* pagina_resultados.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
