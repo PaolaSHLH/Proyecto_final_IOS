@@ -1,13 +1,13 @@
 //
-//  detalles_pkm.swift
+//  pantalla_pokemon.swift
 //  Pokedex
 //
-//  Created by alumno on 14/5/25.
+//  Created by alumno on 19/5/25.
 //
 
 import SwiftUI
  
-struct detallesPkem: View {
+struct detallesPkm: View {
     @Environment(ControladorApi.self) var controlador
  
     // Colores temáticos por tipo

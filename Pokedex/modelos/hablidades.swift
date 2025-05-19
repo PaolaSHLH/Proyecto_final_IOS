@@ -11,10 +11,17 @@ struct Ability: Identifiable, Codable {
     let id: Int
     let name: String
     let effect_entries: [EffectEntry]
+    
+    struct EffectEntry: Codable {
+        let effect: String
+        let short_effect: String
+        let language: NamedAPIResource
+    }
+}
+
+ 
+struct AbilityPokemon: Codable {
+    let pokemon: NamedAPIResource
 }
  
-struct EffectEntry: Codable {
-    let effect: String
-    let short_effect: String
-    let language: NamedAPIResource
-}
+

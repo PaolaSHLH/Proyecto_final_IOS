@@ -17,3 +17,8 @@ struct Move: Identifiable, Codable {
     let damage_class: NamedAPIResource
     let effect_entries: [EffectEntry]
 }
+struct EffectEntry: Codable {
+    let effect: String
+    let short_effect: String
+    let language: NamedAPIResource
+}

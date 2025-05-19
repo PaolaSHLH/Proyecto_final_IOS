@@ -1,13 +1,13 @@
 //
-//  pantalla_pokedex.swift
+//  pantalla_dex.swift
 //  Pokedex
 //
-//  Created by alumno on 14/5/25.
+//  Created by alumno on 19/5/25.
 //
 
 import SwiftUI
  
-struct PantallaPokidex: View {
+struct PantallaPokedex: View {
     @Environment(ControladorApi.self) var controlador
  
     var body: some View {
@@ -71,3 +71,4 @@ struct PantallaPokidex: View {
     PantallaPokedex()
         .environment(ControladorApi())
 }
+

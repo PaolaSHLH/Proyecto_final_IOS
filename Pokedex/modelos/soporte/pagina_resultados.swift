@@ -23,7 +23,7 @@ struct Enlaces: Codable
     let next: String
     let last: String
 }
-
+//lista de pokedex
 struct PokemonResumen: Identifiable, Codable {
     var id: String { name }
     let name: String
@@ -39,4 +39,24 @@ struct PaginaResultadoPokedex: Codable {
     var items: [PokemonResumen] {
         return results
     }
+}
+// lista Habilidades
+struct PaginaResultadoHabilidades: Codable {
+    let results: [HabilidadResumen]
+    var items: [HabilidadResumen] {
+        return results
+    }
+}
+ 
+struct HabilidadResumen: Identifiable, Codable {
+    var id: String { name }
+    let name: String
+    let url: String
+}
+
+//lista movimientos
+struct MovResumen{
+    var id: String {name}
+    let name: String
+    let url: String
 }

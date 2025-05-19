@@ -7,44 +7,52 @@
 
 import SwiftUI
  
-class PokemonAPI: Codable {
+enum Errores: Error {
+    case badUrl
+    case badResponse
+    case badStatus
+    case fallaAlConvertirLaRespuesta
+    case invalidRequest
+}
+ 
+class PokemonAPI {
     let url_base = "https://pokeapi.co/api/v2/"
- 
-    func descargar_pagina_pokemons() async -> PaginaResultadoPokedex? {
+    // Descargar página de pokemones resumidos
+    func descargar_pagina_pokemons() async throws -> PaginaResultadoPokedex {
         let ubicacion_recurso = "/pokemon?limit=251"
-        return await descargar(recurso: ubicacion_recurso)
+        return try await descargar(recurso: ubicacion_recurso)
     }
- 
-    func descargar_informacion_pokemon(id: Int) async -> Pokemon? {
-        return await descargar(recurso: "pokemon/\(id)")
+    // Descargar información completa de un pokemon
+    func descargar_informacion_pokemon(id: Int) async throws -> Pokemon {
+        return try await descargar(recurso: "pokemon/\(id)")
     }
- 
-    func descargar<TipoGenerico: Codable>(recurso: String) async -> TipoGenerico? {
-        do {
-            guard let url = URL(string: "\(url_base)\(recurso)") else { throw ErroresDeRed.badUrl }
-            let (datos, respuesta) = try await URLSession.shared.data(from: url)
-            guard let respuesta = respuesta as? HTTPURLResponse else { throw ErroresDeRed.badResponse }
-            guard respuesta.statusCode >= 200 && respuesta.statusCode < 300 else { throw ErroresDeRed.badStatus }
- 
-            let respuesta_decodificada = try JSONDecoder().decode(TipoGenerico.self, from: datos)
-            return respuesta_decodificada
- 
-        } catch ErroresDeRed.badUrl {
-            print("Tienes mala conexión.")
-        } catch ErroresDeRed.badResponse {
-            print("Error en la respuesta.")
-        } catch ErroresDeRed.badStatus {
-            print("Error de status.")
-        } catch ErroresDeRed.fallaAlConvertirLaRespuesta {
-            print("Error al convertir datos.")
-        } catch ErroresDeRed.invalidRequest {
-            print("Petición inválida.")
-        } catch let error as NSError {
-            print("Error de modelo: \(error.debugDescription)")
-        } catch {
-            print("Error desconocido.")
+    // Descargar página de habilidades
+    func descargar_pagina_hab() async throws -> PaginaResultadoHabilidades {
+        let ubicacion_recurso = "/ability?limit=251"
+        return try await descargar(recurso: ubicacion_recurso)
+    }
+    // Descargar habilidad individual
+    func descargar_habilidad(nombre: String) async throws -> Ability {
+        let ubicacion_recurso = "/ability/\(nombre)"
+        return try await descargar(recurso: ubicacion_recurso)
+    }
+    // Función genérica para descargar y decodificar datos
+    func descargar<TipoGenerico: Codable>(recurso: String) async throws -> TipoGenerico {
+        guard let url = URL(string: "\(url_base)\(recurso)") else {
+            throw ErroresDeRed.badUrl
         }
- 
-        return nil
+        let (datos, respuesta) = try await URLSession.shared.data(from: url)
+        guard let respuestaHTTP = respuesta as? HTTPURLResponse else {
+            throw ErroresDeRed.badResponse
+        }
+        guard (200..<300).contains(respuestaHTTP.statusCode) else {
+            throw ErroresDeRed.badStatus
+        }
+        do {
+            let resultado = try JSONDecoder().decode(TipoGenerico.self, from: datos)
+            return resultado
+        } catch {
+            throw ErroresDeRed.fallaAlConvertirLaRespuesta
+        }
     }
 }
