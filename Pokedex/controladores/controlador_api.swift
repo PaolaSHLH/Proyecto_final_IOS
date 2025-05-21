@@ -17,6 +17,8 @@ public class ControladorApi {
     var pokemon_seleccionado: Pokemon? = nil
     var pagina_resultados_pokedex: PaginaResultadoPokedex? = nil
     var pagina_resultado_hab: PaginaResultadoHabilidades? = nil
+    var hab_seleccionada: Ability? = nil
+    var pagina_resultado_mov: PaginaResultadoMove? = nil
 
     init() {
         Task {
@@ -61,6 +63,24 @@ public class ControladorApi {
             self.pagina_resultado_hab = datos
         } catch {
             print("Error al descargar habilidades: \(error)")
+        }
+    }
+    
+    func seleccionar_hab(_ resumen: HabilidadResumen) async{
+        do{
+            let habilidad = try await PokemonAPI().descargar_habilidad(nombre: resumen.name)
+            self.hab_seleccionada = habilidad
+        }catch{
+            print("Error al descargar habilidad \(error)")
+        }
+    }
+    
+    func descargar_movimientos() async{
+        do{
+            let datos = try await PokemonAPI().descargar_pagina_mov()
+            self.pagina_resultado_mov = datos
+        } catch{
+            print("Error al descargar movimientos \(error)")
         }
     }
 

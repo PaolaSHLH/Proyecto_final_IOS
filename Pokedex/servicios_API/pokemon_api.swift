@@ -36,6 +36,11 @@ class PokemonAPI {
         let ubicacion_recurso = "/ability/\(nombre)"
         return try await descargar(recurso: ubicacion_recurso)
     }
+    func descargar_pagina_mov() async throws -> PaginaResultadoMove{
+        let ubicacion_recurso = "/move?limit=30"
+        return try await descargar(recurso: ubicacion_recurso)
+    }
+    
     // Función genérica para descargar y decodificar datos
     func descargar<TipoGenerico: Codable>(recurso: String) async throws -> TipoGenerico {
         guard let url = URL(string: "\(url_base)\(recurso)") else {

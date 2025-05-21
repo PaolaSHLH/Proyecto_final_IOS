@@ -7,21 +7,21 @@
 
 import SwiftUI
 
-struct Ability: Identifiable, Codable {
-    let id: Int
-    let name: String
-    let effect_entries: [EffectEntry]
-    
-    struct EffectEntry: Codable {
-        let effect: String
-        let short_effect: String
-        let language: NamedAPIResource
-    }
+struct Ability: Codable {
+    var id: Int
+    var name: String
+    var effect_entries: [AbilityEffectEntry]
+    var pokemon: [AbilityPokemon]
 }
-
+ 
+struct AbilityEffectEntry: Codable {
+    var effect: String
+    var short_effect: String
+    var language: NamedAPIResource
+}
  
 struct AbilityPokemon: Codable {
-    let pokemon: NamedAPIResource
+    var pokemon: NamedAPIResource
 }
  
 

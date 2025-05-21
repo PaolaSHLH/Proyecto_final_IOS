@@ -20,6 +20,8 @@
 		FB88FA232DCE629D00FF12DE /* movimientos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88FA222DCE629D00FF12DE /* movimientos.swift */; };
 		FB88FA252DCE638600FF12DE /* hablidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88FA242DCE638600FF12DE /* hablidades.swift */; };
 		FB9250CE2DDB988700A76412 /* pantalla_hab_det.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9250CD2DDB988700A76412 /* pantalla_hab_det.swift */; };
+		FBCC2D092DDE2EF100B3E0C6 /* pantalla_movimientos.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC2D082DDE2EF100B3E0C6 /* pantalla_movimientos.swift */; };
+		FBCC2D0B2DDE3A6900B3E0C6 /* pantalla_movimiento_d.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCC2D0A2DDE3A6900B3E0C6 /* pantalla_movimiento_d.swift */; };
 		FBE41D272DD4EEDF00415FB1 /* pagina_resultados.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE41D262DD4EEDF00415FB1 /* pagina_resultados.swift */; };
 		FBE41D292DD4F11D00415FB1 /* errores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE41D282DD4F11D00415FB1 /* errores.swift */; };
 		FBE41D2D2DD4F26800415FB1 /* pantalla_pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE41D2C2DD4F26800415FB1 /* pantalla_pokedex.swift */; };
@@ -41,6 +43,8 @@
 		FB88FA222DCE629D00FF12DE /* movimientos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movimientos.swift; sourceTree = "<group>"; };
 		FB88FA242DCE638600FF12DE /* hablidades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hablidades.swift; sourceTree = "<group>"; };
 		FB9250CD2DDB988700A76412 /* pantalla_hab_det.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantalla_hab_det.swift; sourceTree = "<group>"; };
+		FBCC2D082DDE2EF100B3E0C6 /* pantalla_movimientos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantalla_movimientos.swift; sourceTree = "<group>"; };
+		FBCC2D0A2DDE3A6900B3E0C6 /* pantalla_movimiento_d.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pantalla_movimiento_d.swift; sourceTree = "<group>"; };
 		FBE41D262DD4EEDF00415FB1 /* pagina_resultados.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pagina_resultados.swift; sourceTree = "<group>"; };
 		FBE41D282DD4F11D00415FB1 /* errores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = errores.swift; sourceTree = "<group>"; };
 		FBE41D2C2DD4F26800415FB1 /* pantalla_pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = pantalla_pokedex.swift; path = servicios_API/pantalla_pokedex.swift; sourceTree = SOURCE_ROOT; };
@@ -65,6 +69,8 @@
 				FB54B51F2DDB83B800ABDEAF /* pantalla_pokemon.swift */,
 				FB54B5212DDB843D00ABDEAF /* pantalla_hab.swift */,
 				FB9250CD2DDB988700A76412 /* pantalla_hab_det.swift */,
+				FBCC2D082DDE2EF100B3E0C6 /* pantalla_movimientos.swift */,
+				FBCC2D0A2DDE3A6900B3E0C6 /* pantalla_movimiento_d.swift */,
 			);
 			path = pantallas;
 			sourceTree = "<group>";
@@ -235,6 +241,8 @@
 				FB88FA0C2DCE57F200FF12DE /* ContentView.swift in Sources */,
 				FB88FA232DCE629D00FF12DE /* movimientos.swift in Sources */,
 				FB88FA0A2DCE57F200FF12DE /* PokedexApp.swift in Sources */,
+				FBCC2D0B2DDE3A6900B3E0C6 /* pantalla_movimiento_d.swift in Sources */,
+				FBCC2D092DDE2EF100B3E0C6 /* pantalla_movimientos.swift in Sources */,
 				FB54B5222DDB843D00ABDEAF /* pantalla_hab.swift in Sources */,
 				FBE41D272DD4EEDF00415FB1 /* pagina_resultados.swift in Sources */,
 				FB9250CE2DDB988700A76412 /* pantalla_hab_det.swift in Sources */,

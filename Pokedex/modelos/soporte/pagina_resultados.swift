@@ -55,8 +55,12 @@ struct HabilidadResumen: Identifiable, Codable {
 }
 
 //lista movimientos
-struct MovResumen{
+struct MovResumen: Identifiable, Codable{
     var id: String {name}
     let name: String
     let url: String
+}
+
+struct PaginaResultadoMove: Codable{
+    let results: [MovResumen]
 }
