@@ -14,7 +14,6 @@ struct pantallaHabDet: View {
         if let habilidad = controlador.hab_seleccionada {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    // Encabezado con fondo decorativo
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
                             .fill(LinearGradient(gradient: Gradient(colors: [Color.green.opacity(0.3), Color.teal.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -32,17 +31,6 @@ struct pantallaHabDet: View {
                                 .font(.title3)
                                 .bold()
                             Text(efecto.short_effect)
-                                .font(.body)
-                                .foregroundColor(.primary)
-                        }
- 
-                        Divider()
- 
-                        if let efectoEsp = habilidad.effect_entries.first(where: { $0.language.name == "es" }) {
-                            Text("🌐 Descripción (Español):")
-                                .font(.title3)
-                                .bold()
-                            Text(efectoEsp.short_effect)
                                 .font(.body)
                                 .foregroundColor(.primary)
                         }

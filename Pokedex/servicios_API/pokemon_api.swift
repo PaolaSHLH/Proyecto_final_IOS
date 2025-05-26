@@ -37,8 +37,14 @@ class PokemonAPI {
         return try await descargar(recurso: ubicacion_recurso)
     }
     func descargar_pagina_mov() async throws -> PaginaResultadoMove{
-        let ubicacion_recurso = "/move?limit=30"
+        let ubicacion_recurso = "/move?limit=130"
         return try await descargar(recurso: ubicacion_recurso)
+    }
+    //descargar movimiento seleccionado individual
+    func descargar_movimiento(nombre: String) async throws -> Move {
+        let ubicacion_recurso = "/move\(nombre)"
+        return try await descargar(recurso: ubicacion_recurso)
+        
     }
     
     // Función genérica para descargar y decodificar datos

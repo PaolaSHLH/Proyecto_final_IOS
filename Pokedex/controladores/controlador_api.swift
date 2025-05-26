@@ -19,6 +19,7 @@ public class ControladorApi {
     var pagina_resultado_hab: PaginaResultadoHabilidades? = nil
     var hab_seleccionada: Ability? = nil
     var pagina_resultado_mov: PaginaResultadoMove? = nil
+    var mov_seleccionado: Move? = nil
 
     init() {
         Task {
@@ -32,6 +33,7 @@ public class ControladorApi {
         await withTaskGroup(of: Void.self) { group in
             group.addTask { await self.descargar_pokemones() }
             group.addTask { await self.descargar_habilidades() }
+            group.addTask {await self.descargar_movimientos()}
         }
     }
 
@@ -81,6 +83,15 @@ public class ControladorApi {
             self.pagina_resultado_mov = datos
         } catch{
             print("Error al descargar movimientos \(error)")
+        }
+    }
+    
+    func seleccionar_mov(_ resumen: MovResumen) async{
+        do{
+            let movimiento = try await PokemonAPI().descargar_movimiento(nombre: resumen.name)
+            self.mov_seleccionado = movimiento
+        }catch{
+            print("error al descargar movimiento")
         }
     }
 
