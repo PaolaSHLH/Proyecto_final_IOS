@@ -21,85 +21,112 @@ struct detallesPkm: View {
  
     var body: some View {
         if let pokemon = controlador.pokemon_seleccionado {
-            ScrollView {
-                VStack(spacing: 20) {
-                    // Imagen
-                    AsyncImage(url: URL(string: pokemon.sprites.front_default ?? "")) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 150, height: 150)
-                    } placeholder: {
-                        ProgressView()
-                            .frame(width: 150, height: 150)
-                    }
+            ZStack {
+                // Imagen de fondo
+                Image("fondo_dex")
+                    .resizable()
+                    //.scaledToFill()
+                    .ignoresSafeArea()
+                    .opacity(0.9)
  
-                    // Nombre y número
-                    Text("#\(pokemon.id) \(pokemon.name.capitalized)")
-                        .font(.title)
-                        .bold()
- 
-                    // Altura y peso
-                    HStack(spacing: 40) {
-                        VStack {
-                            Text("Altura")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text("\(pokemon.height)")
+                ScrollView {
+                    VStack(spacing: 0) {
+                        // Imagen del Pokémon
+                        AsyncImage(url: URL(string: pokemon.sprites.front_default ?? "")) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150, height: 150)
+                        } placeholder: {
+                            ProgressView()
+                                .frame(width: 150, height: 150)
                         }
-                        VStack {
-                            Text("Peso")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text("\(pokemon.weight)")
-                        }
-                    }
  
-                    // Tipos
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Tipos:")
-                            .font(.headline)
-                        HStack {
-                            ForEach(pokemon.types, id: \.slot) { tipo in
-                                Text(tipo.type.name.capitalized)
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 6)
-                                    .background(tipoColores[tipo.type.name, default: .gray].opacity(0.3))
-                                    .foregroundColor(.black)
-                                    .clipShape(Capsule())
+                        // Nombre y número
+                        Text("#\(pokemon.id) \(pokemon.name.capitalized)")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .bold()
+ 
+                        // Altura y peso
+                        HStack(spacing: 40) {
+                            VStack {
+                                Text("Altura")
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                                Text("\(pokemon.height)")
+                                    .foregroundColor(.white)
+                            }
+                            VStack {
+                                Text("Peso")
+                                    .font(.caption)
+                                    .foregroundColor(.white)
+                                Text("\(pokemon.weight)")
+                                    .foregroundColor(.white)
                             }
                         }
-                    }
  
-                    // Habilidades
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Habilidades:")
-                            .font(.headline)
-                        ForEach(pokemon.abilities, id: \.ability.name) { habilidad in
-                            Text(habilidad.ability.name.capitalized)
-                                .italic()
-                                .foregroundColor(habilidad.is_hidden ? .purple : .primary)
-                        }
-                    }
- 
-                    // Estadísticas
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("Estadísticas:")
-                            .font(.headline)
-                        ForEach(pokemon.stats, id: \.stat.name) { stat in
+                        // Tipos
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Tipos:")
+                                .font(.headline)
+                                .foregroundColor(.white)
                             HStack {
-                                Text(stat.stat.name.capitalized)
-                                    .frame(width: 100, alignment: .leading)
-                                ProgressView(value: Float(stat.base_stat), total: 100)
-                                    .tint(.green)
-                                Text("\(stat.base_stat)")
-                                    .frame(width: 40, alignment: .trailing)
+                                ForEach(pokemon.types, id: \.slot) { tipo in
+                                    Text(tipo.type.name.capitalized)
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 6)
+                                        .background(tipoColores[tipo.type.name, default: .gray].opacity(0.4))
+                                        .foregroundColor(.white)
+                                        .clipShape(Capsule())
+                                }
                             }
                         }
-                    }
  
+                        Spacer()
+                        Spacer()
+                        // Habilidades
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Habilidades:")
+                                .font(.headline)
+                            ForEach(pokemon.abilities, id: \.ability.name) { habilidad in
+                                Text(habilidad.ability.name.capitalized)
+                                    .italic()
+                                    .foregroundColor(habilidad.is_hidden ? .purple : .primary)
+                            }
+                        }.padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(Color(.systemGray6))
+                                    .shadow(radius: 1)
+                            )
+ 
+                        Spacer()
+                        Spacer()
+                        // Estadísticas
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Estadísticas:")
+                                .font(.headline)
+                            ForEach(pokemon.stats, id: \.stat.name) { stat in
+                                HStack {
+                                    Text(stat.stat.name.capitalized)
+                                        .frame(width: 100, alignment: .leading)
+                                    ProgressView(value: Float(stat.base_stat), total: 100)
+                                        .tint(.green)
+                                    Text("\(stat.base_stat)")
+                                        .frame(width: 40, alignment: .trailing)
+                                }
+                            }
+                        }
+                        .padding()
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color(.systemGray6))
+                                .shadow(radius: 1)
+                        )
+                    }
+                    .padding()
                 }
-                .padding()
             }
             .navigationTitle(pokemon.name.capitalized)
             .navigationBarTitleDisplayMode(.inline)

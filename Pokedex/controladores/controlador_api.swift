@@ -91,7 +91,7 @@ public class ControladorApi {
             let movimiento = try await PokemonAPI().descargar_movimiento(nombre: resumen.name)
             self.mov_seleccionado = movimiento
         }catch{
-            print("error al descargar movimiento")
+            print("error al descargar movimiento en el controlador")
         }
     }
 

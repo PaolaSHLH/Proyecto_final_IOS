@@ -16,7 +16,7 @@ struct pantallaHabDet: View {
                 VStack(alignment: .leading, spacing: 24) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(LinearGradient(gradient: Gradient(colors: [Color.green.opacity(0.3), Color.teal.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color.gray.opacity(0.8), Color.white.opacity(0.8)]), startPoint: .topLeading, endPoint: .bottomTrailing))
                             .frame(maxWidth: .infinity, minHeight: 100)
                             .shadow(radius: 4)
                         Text(habilidad.name.capitalized)
@@ -64,8 +64,7 @@ struct pantallaHabDet: View {
                 }
                 .padding()
             }
-            .navigationTitle("Habilidad")
-            .navigationBarTitleDisplayMode(.inline)
+            .background(Color.yellow)
         } else {
             ProgressView("Cargando...")
                 .navigationTitle("Habilidad")

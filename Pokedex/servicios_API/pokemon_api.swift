@@ -19,9 +19,10 @@ class PokemonAPI {
     let url_base = "https://pokeapi.co/api/v2/"
     // Descargar página de pokemones resumidos
     func descargar_pagina_pokemons() async throws -> PaginaResultadoPokedex {
-        let ubicacion_recurso = "/pokemon?limit=251"
+        let ubicacion_recurso = "/pokemon?limit=649"
         return try await descargar(recurso: ubicacion_recurso)
     }
+    
     // Descargar información completa de un pokemon
     func descargar_informacion_pokemon(id: Int) async throws -> Pokemon {
         return try await descargar(recurso: "pokemon/\(id)")
@@ -42,7 +43,7 @@ class PokemonAPI {
     }
     //descargar movimiento seleccionado individual
     func descargar_movimiento(nombre: String) async throws -> Move {
-        let ubicacion_recurso = "/move\(nombre)"
+        let ubicacion_recurso = "/move/\(nombre)"
         return try await descargar(recurso: ubicacion_recurso)
         
     }
